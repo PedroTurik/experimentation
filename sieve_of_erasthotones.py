@@ -1,7 +1,4 @@
 from math import isqrt
-from prime_sieve.array import PrimeArraySieve
-
-sieve = PrimeArraySieve()
 
 def primes_less_than(n: int) -> list[int]:
     if n<= 2:
@@ -15,9 +12,13 @@ def primes_less_than(n: int) -> list[int]:
             for x in range(i*i, n, i):
                 is_prime[x] = False
 
-    return [i for i in range(n) if is_prime[i]]
+    return (i for i in range(n) if is_prime[i])
+
+def main():
+    for n in primes_less_than(int(input("max_number: "))):
+        print(f"{n}, ", end="")
+    print()
 
 
-if __name__ == '__main__':
-    for p in sieve.iter_all_primes(): # infinite loop
-        print(p)
+if __name__=="__main__":
+    main()
