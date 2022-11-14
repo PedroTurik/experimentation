@@ -1,5 +1,8 @@
 from math import isqrt
 
+# Finding primes algorithm, using the sieve of erasthotones method
+
+
 def primes_less_than(n: int) -> list[int]:
     if n<= 2:
         return []
