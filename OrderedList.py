@@ -12,6 +12,9 @@ class OrderedList(list):
         self.sort(reverse=reversed)
         self.reversed = reversed
 
+    def extend():
+        raise NotImplementedError
+
     def append(self, *args):
         for n in args:
             self.insert(0, n)
@@ -38,7 +41,8 @@ class OrderedList(list):
         return super().insert(lo, n)
 
     def reverse(self) -> None:
-        raise Exception("An OrderedList cant be reversed")
+        self.reversed = not self.reversed
+        self.sort(reverse=self.reversed)
 
         
     def rinsert(self, n):
@@ -51,12 +55,14 @@ class OrderedList(list):
             else:
                 hi = mid
         return super().insert(lo, n)
+    
 
 lista = OrderedList([1, 40, 7, 23, 2, 0], reversed=True)
 lista.append(5, 123,51,536,64)
 lista = lista + [12, 13]
+lista.reverse()
 lista += [13,124,26,25,-15, -12]
 lista.insert(0,-646)
-
+lista.reverse()
 
 print(lista)
